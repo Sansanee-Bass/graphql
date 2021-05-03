@@ -1,29 +1,29 @@
 type Teacher {
     id: ID!
     last: String
-    first: String 
-    course: [Course!]!
+    first: String
+    courses: [Course!]!
 }
-type Student{
+
+type Student {
     id: ID!
     last: String
-    first: String 
+    first: String
     dob: String
-    course: [Course!]!
+    courses: [Course!]!
 }
 
 type Course {
     id: ID!
     name: String
-    description: String 
-    student: [Student!]!
+    description: String
+    students: [Student!]!
     teacher: Teacher
 }
 
-
 type Query {
-     teacher(id:Int!): Teacher
-     teachers:[Teacher!]!
-     courses:[Course!]!
-     students: [Student!]!
-}
+    teacher(id: Int!): Teacher
+    teachers:[Teacher!]!
+    courses:[Course!]!
+    students:[Student!]! 
+} 

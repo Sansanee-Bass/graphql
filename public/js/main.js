@@ -1,5 +1,11 @@
 window.addEventListener('load', async (e) => {
-	let reqHeaders = await fetch('/headers');
 
-	console.log(reqHeaders);
+	const query = "{student {first, last, dob, course {name,description, teacher {id, first, last}}}}";
+	let q = await fetch('/gql');
+
+
+	let data = await q.json();
+
+
+	console.log(data);
 });

@@ -1,7 +1,15 @@
 const fs = require('fs');
-const graphql = require('graphql');
+const gqltools = require('graphql-tools');
+//const graphql = require('graphql');
 
-module.exports = (schema) => { // we can lode schema  
+module.exports = (schema, resolvers) => { // we can lode schema  
     let fdata = fs.readFileSync(schema, 'utf8');
-    return graphql.buildSchema(fdata);
+    return gqltools.makeExecutableSchema(
+        {
+            typeDefs: fdata,
+            resolvers: resolvers
+
+        }
+    );
 }
+// creat obj we can use
